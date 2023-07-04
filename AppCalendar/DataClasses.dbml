@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataBase" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Tabela_Kategorie" Member="Tabela_Kategorie">
+    <Type Name="Tabela_Kategorie">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nazwa" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Tabela_Kategorie_Tabela_Wydarzenia" Member="Tabela_Wydarzenia" ThisKey="Id" OtherKey="Id_Kategorii" Type="Tabela_Wydarzenia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela_RL" Member="Tabela_RL">
+    <Type Name="Tabela_RL">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Haslo" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="Sol" Type="System.Data.Linq.Binary" DbType="VarBinary(64)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Tabela_RL_Tabela_Wydarzenia" Member="Tabela_Wydarzenia" ThisKey="Id" OtherKey="Id_Uzytkownika" Type="Tabela_Wydarzenia" />
+      <Association Name="Tabela_RL_Tabela_WydarzeniaUdostepnione" Member="Tabela_WydarzeniaUdostepnione" ThisKey="Id" OtherKey="Id_Uzytkownika" Type="Tabela_WydarzeniaUdostepnione" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela_Wydarzenia" Member="Tabela_Wydarzenia">
+    <Type Name="Tabela_Wydarzenia">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nazwa" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Godzina" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Opis" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Miejsce" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Goscie" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Notatka" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Kolor" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Priorytet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Uzytkownika" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Kategorii" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tabela_Wydarzenia_Tabela_WydarzeniaUdostepnione" Member="Tabela_WydarzeniaUdostepnione" ThisKey="Id" OtherKey="Id_Wydarzenia" Type="Tabela_WydarzeniaUdostepnione" />
+      <Association Name="Tabela_Kategorie_Tabela_Wydarzenia" Member="Tabela_Kategorie" ThisKey="Id_Kategorii" OtherKey="Id" Type="Tabela_Kategorie" IsForeignKey="true" />
+      <Association Name="Tabela_RL_Tabela_Wydarzenia" Member="Tabela_RL" ThisKey="Id_Uzytkownika" OtherKey="Id" Type="Tabela_RL" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela_WydarzeniaUdostepnione" Member="Tabela_WydarzeniaUdostepnione">
+    <Type Name="Tabela_WydarzeniaUdostepnione">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id_Wydarzenia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Uzytkownika" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tabela_RL_Tabela_WydarzeniaUdostepnione" Member="Tabela_RL" ThisKey="Id_Uzytkownika" OtherKey="Id" Type="Tabela_RL" IsForeignKey="true" />
+      <Association Name="Tabela_Wydarzenia_Tabela_WydarzeniaUdostepnione" Member="Tabela_Wydarzenia" ThisKey="Id_Wydarzenia" OtherKey="Id" Type="Tabela_Wydarzenia" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
