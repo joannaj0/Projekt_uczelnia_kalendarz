@@ -10,11 +10,11 @@
         <title>Strona Główna</title>
     <% if (Session["DarkMode"] != null && (bool)Session["DarkMode"])
         { %>
-    <link rel="stylesheet" href="Darkmode.css" type="text/css" />
+    <link rel="stylesheet" href="Styl.css" type="text/css" />
     <% }
         else
         { %>
-    <link rel="stylesheet" href="Styl.css" type="text/css" />
+    <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
 </head>
 
