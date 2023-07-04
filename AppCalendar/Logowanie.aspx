@@ -25,7 +25,7 @@
         crossorigin="anonymous"></script>
 
 
-    <main class="form-signin w-25 m-auto">
+    <main class="form-signin w-25 m-auto" >
         <form id="form1" runat="server">
 
             <h1 class="h3 mb-3 fw-normal text-primary">Logowanie</h1>

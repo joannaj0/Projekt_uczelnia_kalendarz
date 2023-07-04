@@ -20,12 +20,10 @@
     <link href="StylPanel.css" rel="stylesheet">
 </head>
 
-<body>
-    <body class="d-flex align-items-center">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-            crossorigin="anonymous"></script>
-
+<body class="d-flex align-items-center">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
         <main class="form-signin w-25 m-auto">
             <form id="form1" runat="server">
 
@@ -36,7 +34,7 @@
                     <label for="EmailBoRL">E-mail</label>
                 </div>
                 <div class="form-floating">
-                    <asp:TextBox ID="HasloBoxR" class="form-control" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <asp:TextBox ID="HasloBoxR" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
                     <label for="HasloBoxR">Hasło</label>
                 </div>
                 <asp:Button ID="ZarejestrujButton" runat="server" class="btn btn-primary w-100 py-2" Text="Zarejestruj" OnClick="ZarejestrujButton_Click" />
@@ -44,5 +42,5 @@
                 <asp:Label ID="InfoLabelR" class="h5 mb-3 fw-normal text-primary" runat="server" Text=""></asp:Label>
             </form>
         </main>
-    </body>
+</body>
 </html>

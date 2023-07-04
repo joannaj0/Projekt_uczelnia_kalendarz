@@ -10,11 +10,11 @@
         <title>Strona Główna</title>
     <% if (Session["DarkMode"] != null && (bool)Session["DarkMode"])
         { %>
-    <link rel="stylesheet" href="Styl.css" type="text/css" />
+    <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% }
         else
         { %>
-    <link rel="stylesheet" href="Darkmode.css" type="text/css" />
+    <link rel="stylesheet" href="Styl.css" type="text/css" />
     <% } %>
 </head>
 
@@ -27,8 +27,8 @@
         <div class="container">
             <header
                 class="d-flex flex-wrap align-items-right justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <div class="col-md-3 mb-2 mb-md-0">
-                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <div class="mb-md-0">
+                    <ul class="nav col-12 col-md-auto justify-content-center mb-md-0">
                         <li><a href="https://localhost:44360/Logowanie.aspx" class="nav-link px-2">Zaloguj</a></li>
                         <li><a href="https://localhost:44360/Rejestracja.aspx" class="nav-link px-2">Zarejestruj</a></li>
                     </ul>
