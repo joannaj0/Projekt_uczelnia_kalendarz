@@ -16,6 +16,7 @@
     { %>
     <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
+        <link href="StylPanel.css" rel="stylesheet">
 </head>
 
     <body class="d-flex align-items-center py-5">

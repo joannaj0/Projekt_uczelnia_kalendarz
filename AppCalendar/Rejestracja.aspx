@@ -5,42 +5,44 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Rejestracja</title>
-     <% if (Session["DarkMode"] != null && (bool)Session["DarkMode"]) { %>
+    <% if (Session["DarkMode"] != null && (bool)Session["DarkMode"])
+        { %>
     <link rel="stylesheet" href="Styl.css" type="text/css" />
-    <% } else { %>
+    <% }
+        else
+        { %>
     <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
+    <link href="StylPanel.css" rel="stylesheet">
 </head>
 
 <body>
-    <form id="form1" runat="server">
-        <div class="STRONA">
-        <div class="BOX">
-        <p style="font-size: 40px;font-family: serif; text-align: initial; font-weight: bold">Rejestracja</p>
-            <table style="width: 100%;">
-            <tbody style="font-family: serif; font-size: 20px">
-                <tr>
-                    <td stle="padding: 18px; ">E-mail: </td>
-                    <td>
-                        <asp:TextBox ID="EmailBoxR" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td stle="padding: 18px; ">Hasło: </td>
-                    <td><asp:TextBox ID="HasloBoxR" runat="server" TextMode="Password"></asp:TextBox></td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><asp:Button ID="ZarejestrujButton" runat="server" class="BUTTON" Text="Zarejestruj" OnClick="ZarejestrujButton_Click" /></td>
-                </tr>
-            </tbody>
-            </table>
-            <asp:Label ID="InfoLabelR" runat="server" Text=""></asp:Label>
-        </div>
-        </div>
-    </form>
-</body>
+    <body class="d-flex align-items-center">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
 
+        <main class="form-signin w-25 m-auto">
+            <form id="form1" runat="server">
+
+                <h1 class="h3 mb-3 fw-normal text-primary">Rejestracja</h1>
+
+                <div class="form-floating">
+                    <asp:TextBox ID="EmailBoxR" class="form-control" runat="server" TextMode="Email"></asp:TextBox>
+                    <label for="EmailBoRL">E-mail</label>
+                </div>
+                <div class="form-floating">
+                    <asp:TextBox ID="HasloBoxR" class="form-control" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <label for="HasloBoxR">Hasło</label>
+                </div>
+                <asp:Button ID="ZarejestrujButton" runat="server" class="btn btn-primary w-100 py-2" Text="Zarejestruj" OnClick="ZarejestrujButton_Click" />
+
+                <asp:Label ID="InfoLabelR" class="h5 mb-3 fw-normal text-primary" runat="server" Text=""></asp:Label>
+            </form>
+        </main>
+    </body>
 </html>

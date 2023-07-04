@@ -89,6 +89,7 @@
     <Content Include="Rejestracja.aspx" />
     <Content Include="StronaGlowna.aspx" />
     <Content Include="Styl.css" />
+    <Content Include="StylPanel.css" />
     <Content Include="Szukaj.aspx" />
     <Content Include="Udostepnianie.aspx" />
     <Content Include="Web.config" />
