@@ -12,30 +12,30 @@
         { %>
     <link rel="stylesheet" href="Styl.css" type="text/css" />
     <% }
-    else
-    { %>
+        else
+        { %>
     <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
-        <link href="StylPanel.css" rel="stylesheet">
+    <link href="StylPanel.css" rel="stylesheet">
 </head>
 
-    <body class="d-flex align-items-center py-5">
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+<body class="d-flex align-items-center py-5">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
 
 
-    <main class="form-signin w-25 m-auto" >
+    <main class="form-signin w-25 m-auto">
         <form id="form1" runat="server">
 
             <h1 class="h3 mb-3 fw-normal text-primary">Logowanie</h1>
 
             <div class="form-floating">
                 <asp:TextBox ID="EmailBoxL" class="form-control" runat="server" TextMode="Email"></asp:TextBox>
-      <label for="EmailBoxL">E-mail</label>
+                <label for="EmailBoxL">E-mail</label>
             </div>
             <div class="form-floating">
-                    <asp:TextBox ID="HasloBoxL" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="HasloBoxL" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
                 <label for="HasloBoxL">Hasło</label>
             </div>
 

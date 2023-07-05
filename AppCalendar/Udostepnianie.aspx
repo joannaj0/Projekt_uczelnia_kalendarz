@@ -23,6 +23,7 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <form id="form1" runat="server">
+           <div draggable="auto">
         <div class="container">
             <header
                 class="d-flex flex-wrap align-items-right justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -36,7 +37,7 @@
                     </ul>
                 </div>
             </header>
-        </div>
+      
         <asp:Label ID="Label1" runat="server" Font-Bold="true" Text="Twoje wydarzenie: "></asp:Label><br />
         <asp:Label ID="NazwaLabel" runat="server" Text="Nazwa:      " Visible="true"></asp:Label><asp:Label ID="NazwaLabelDane" runat="server" Text=""></asp:Label><br />
         <asp:Label ID="DataLabel" runat="server" Text="Data:     " Visible="true"></asp:Label><asp:Label ID="DataLabelDane" runat="server" Text=""></asp:Label><br />
@@ -53,6 +54,8 @@
         <asp:CheckBoxList ID="CheckBoxListOsoby" runat="server"></asp:CheckBoxList>
         <asp:Button ID="ButtonUdostepnij" CssClass="btn btn-outline-primary me-2" runat="server" Text="Udostępnij" OnClick="ButtonUdostepnij_Click" /><br />
         <asp:Label ID="InfoLabel" class="h5 mb-3 fw-normal text-primary" runat="server" Text=""></asp:Label>
+            </div>
+               </div>
     </form>
 </body>
 </html>

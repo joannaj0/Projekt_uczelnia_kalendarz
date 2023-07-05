@@ -77,7 +77,7 @@ namespace AppCalendar
                             div.InnerHtml += (" z ") + wydarzenie.Goscie;
                         }
                     }
-                    Controls.Add(div);
+                    div_dzisiaj.Controls.Add(div);
                 }
             }
         }
@@ -132,7 +132,7 @@ namespace AppCalendar
                         div.InnerHtml += (" z ") + wydarzenie.Goscie;
                     }
                 }
-                Controls.Add(div);
+                div_dzisiaj.Controls.Add(div);
             }
 
             DodajWydarzenieButton.Visible = true;
@@ -248,9 +248,9 @@ namespace AppCalendar
 
             foreach (var wydarzenie in wydarzenia)
             {
-                var div = new HtmlGenericControl("div");
+                var div = new HtmlGenericControl("DIV");
 
-                if (wydarzenie.Data < DateTime.Now && wydarzenie.Godzina < DateTime.Now.TimeOfDay)
+                if (wydarzenie.Data < DateTime.Now || (wydarzenie.Data == DateTime.Now.Date && wydarzenie.Godzina < DateTime.Now.TimeOfDay))
                 {
                     var s = new HtmlGenericControl("s");
                     s.InnerHtml = ("• ") + wydarzenie.Nazwa;
@@ -289,7 +289,7 @@ namespace AppCalendar
                         div.InnerHtml += (" z ") + wydarzenie.Goscie;
                     }
                 }
-                Controls.Add(div);
+                div_dzisiaj.Controls.Add(div);
             }
         }
 

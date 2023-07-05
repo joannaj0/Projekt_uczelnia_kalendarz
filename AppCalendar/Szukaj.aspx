@@ -13,8 +13,8 @@
         { %>
     <link rel="stylesheet" href="Styl.css" type="text/css" />
     <% }
-    else
-    { %>
+        else
+        { %>
     <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
 </head>
@@ -39,54 +39,61 @@
                         <asp:Button ID="Mode" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="Mode_Click" Text="Zmień Motyw" />
                     </div>
                 </header>
-     
-            <div class="col-lg-4 order-md-last">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Szukaj wydarzenia</span>
-                </h4>
-                <div style="width: 375px; height: 66px">
-                    <asp:Label ID="Label" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Wpisz nazwę wydarzenia"></asp:Label><br />
-                    <div class="input-group">
 
-                        <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
-                        <asp:Button ID="ButtonSzukaj" class="btn btn-secondary" runat="server" OnClick="ButtonSzukaj_Click" Text="Szukaj" />
+
+                <div class="col">
+                    <div class="col-lg-4 order-md-last">
+                        <div class="row">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-primary">Szukaj wydarzenia</span>
+                            </h4>
+                        </div>
+
+
+                        <div class="row">
+                            <asp:Label ID="Label" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Wpisz nazwę wydarzenia"></asp:Label><br />
+                        </div>
+                        <div class="input-group">
+
+                            <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
+                            <asp:Button ID="ButtonSzukaj" class="btn btn-secondary" runat="server" OnClick="ButtonSzukaj_Click" Text="Szukaj" />
+                        </div>
+                        <asp:Label ID="LabelKomunikat" class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
                     </div>
-                    <asp:Label ID="LabelKomunikat"  class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
+                    <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
+                        <ItemTemplate>
+                            <ul>
+                                <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "style=\"text-decoration: line-through\"" : "" %>>
+                                    <strong>Nazwa: </strong><%# Eval("Nazwa") %>
+                                    <br />
+                                    <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
+                                    <br />
+                                    <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
+                                    <br />
+                                    <strong>Opis: </strong><%# Eval("Opis") %>
+                                    <br />
+                                    <strong>Miejsce: </strong><%# Eval("Miejsce") %>
+                                    <br />
+                                    <strong>Goście: </strong><%# Eval("Goscie") %>
+                                    <br />
+                                    <strong>Notatka: </strong><%# Eval("Notatka") %>
+                                    <br />
+                                    <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
+                                    <br />
+                                    <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
+                                    <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
+                                        <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                    </asp:Panel>
+                                    <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
+                                        <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                        <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                    </asp:Panel>
+                                </li>
+                            </ul>
+                        </ItemTemplate>
+                    </asp:ListView>
                 </div>
-                <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
-                    <ItemTemplate>
-                        <ul>
-                            <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "style=\"text-decoration: line-through\"" : "" %>>
-                                <strong>Nazwa: </strong><%# Eval("Nazwa") %>
-                                <br />
-                                <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
-                                <br />
-                                <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
-                                <br />
-                                <strong>Opis: </strong><%# Eval("Opis") %>
-                                <br />
-                                <strong>Miejsce: </strong><%# Eval("Miejsce") %>
-                                <br />
-                                <strong>Goście: </strong><%# Eval("Goscie") %>
-                                <br />
-                                <strong>Notatka: </strong><%# Eval("Notatka") %>
-                                <br />
-                                <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
-                                <br />
-                                <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
-                                <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
-                                    <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                </asp:Panel>
-                                <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
-                                    <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                    <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                </asp:Panel>
-                            </li>
-                        </ul>
-                    </ItemTemplate>
-                </asp:ListView>
             </div>
-                </div>
         </div>
     </form>
 </body>

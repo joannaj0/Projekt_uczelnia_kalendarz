@@ -39,28 +39,64 @@
                         <asp:Button ID="Mode" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="Mode_Click" Text="Zmień Motyw" />
                     </div>
                 </header>
-                <asp:Calendar ID="Kalendarz" runat="server" OnSelectionChanged="Kalendarz_SelectionChanged" DayRender="Kalendarz_DayRender" Height="238px" Width="1293px"></asp:Calendar>
 
-                <asp:Button ID="DodajWydarzenieButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Dodaj wydarzenie" Visible="false" OnClick="DodajWydarzenieButton_Click" />
-               
-                <asp:Label ID="NazwaLabel" class="form-label" runat="server" Text="Nazwa:      " Visible="false"></asp:Label><asp:TextBox ID="NazwaBox" class="form-control" runat="server" Visible="false"></asp:TextBox>
-                
-                <asp:Label ID="DataLabel" class="form-label" runat="server" Text="Data:     " Visible="false"></asp:Label><asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="GodzinaLabel"  class="form-label" runat="server" Text="Godzina:     " Visible="false"></asp:Label><asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="OpisLabel" class="form-label" runat="server" Text="Opis:     " Visible="false"></asp:Label><asp:TextBox ID="OpisBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="MiejsceLabel" class="form-label" runat="server" Text="Miejsce:     " Visible="false"></asp:Label><asp:TextBox ID="MiejsceBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="KategoriaLabel" class="form-label" runat="server" Text="Kategoria:     " Visible="false"></asp:Label><asp:DropDownList ID="KategoriaList" class="form-control" runat="server" Visible="false"></asp:DropDownList><br />
-                <asp:Label ID="GoscieLabel" class="form-label" runat="server" Text="Goście:     " Visible="false"></asp:Label><asp:TextBox ID="GoscieBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="NotatkaLabel" class="form-label" runat="server" Text="Notatka:     " Visible="false"></asp:Label><asp:TextBox ID="NotatkaBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="KolorLabel" class="form-label" runat="server" Text="Kolor:     " Visible="false"></asp:Label><asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color" Visible="false"></asp:TextBox><br />
-                <asp:Label ID="PriorytetLabel" class="form-label" runat="server" Text="Priorytet:     " Visible="false"></asp:Label><asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Visible="false" Min="1" Max="10"></asp:TextBox><br />
-                <asp:Button ID="ZapiszButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Zapisz" Visible="false" OnClick="ZapiszButton_Click" />
-                <asp:Label ID="InfoLabelDW" class="h5 mb-3 fw-normal text-primary" runat="server" Text=""></asp:Label>
+                <div class="col">
+                    <div class="row">
+                        <asp:Calendar ID="Kalendarz" runat="server" OnSelectionChanged="Kalendarz_SelectionChanged" DayRender="Kalendarz_DayRender" Height="238px" Width="1323px"></asp:Calendar>
+                    </div>
 
-  
-                    <asp:Label ID="LabelDzisiaj" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Dzisiaj" Visible="True"></asp:Label>
-             
+                    <div class="row">
+                        <asp:Button ID="DodajWydarzenieButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Dodaj wydarzenie" Visible="false" OnClick="DodajWydarzenieButton_Click" />
+                    </div>
 
+                    <div class="row">
+                        <asp:Label ID="NazwaLabel" class="form-label" runat="server" Text="Nazwa:      " Visible="false"></asp:Label><asp:TextBox ID="NazwaBox" class="form-control" runat="server" Visible="false"></asp:TextBox>
+                    </div>
+                    <div class="row">
+                        <asp:Label ID="DataLabel" class="form-label" runat="server" Text="Data:     " Visible="false"></asp:Label><asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date" Visible="false"></asp:TextBox><br />
+                    </div>
+                    <div class="row">
+                        <asp:Label ID="GodzinaLabel" class="form-label" runat="server" Text="Godzina:     " Visible="false"></asp:Label><asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time" Visible="false"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="OpisLabel" class="form-label" runat="server" Text="Opis:     " Visible="false"></asp:Label><asp:TextBox ID="OpisBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="MiejsceLabel" class="form-label" runat="server" Text="Miejsce:     " Visible="false"></asp:Label><asp:TextBox ID="MiejsceBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="KategoriaLabel" class="form-label" runat="server" Text="Kategoria:     " Visible="false"></asp:Label><asp:DropDownList ID="KategoriaList" class="form-control" runat="server" Visible="false"></asp:DropDownList><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="GoscieLabel" class="form-label" runat="server" Text="Goście:     " Visible="false"></asp:Label><asp:TextBox ID="GoscieBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="NotatkaLabel" class="form-label" runat="server" Text="Notatka:     " Visible="false"></asp:Label><asp:TextBox ID="NotatkaBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="KolorLabel" class="form-label" runat="server" Text="Kolor:     " Visible="false"></asp:Label><asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color" Visible="false"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Label ID="PriorytetLabel" class="form-label" runat="server" Text="Priorytet:     " Visible="false"></asp:Label><asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Visible="false" Min="1" Max="10"></asp:TextBox><br />
+                    </div>
+
+                    <div class="row">
+                        <asp:Button ID="ZapiszButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Zapisz" Visible="false" OnClick="ZapiszButton_Click" />
+                    </div>
+
+                    <div class="row">
+                            <asp:Label ID="LabelDzisiaj" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Dzisiaj" Visible="True"></asp:Label>
+                    </div>
+
+                    <div id="div_dzisiaj" class="row" runat="server" ></div>
+                </div>
             </div>
         </div>
     </form>

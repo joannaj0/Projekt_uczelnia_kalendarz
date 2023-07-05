@@ -240,15 +240,6 @@ namespace AppCalendar
         protected global::System.Web.UI.WebControls.Button ZapiszButton;
 
         /// <summary>
-        /// Kontrolka InfoLabelDW.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label InfoLabelDW;
-
-        /// <summary>
         /// Kontrolka LabelDzisiaj.
         /// </summary>
         /// <remarks>
@@ -256,5 +247,14 @@ namespace AppCalendar
         /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelDzisiaj;
+
+        /// <summary>
+        /// Kontrolka div_dzisiaj.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_dzisiaj;
     }
 }
