@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -22,13 +23,15 @@ namespace AppCalendar
             }
             if (!IsPostBack)
             {
-                int user_id = Int32.Parse(Session["user_id"].ToString());
+               int user_id = Int32.Parse(Session["user_id"].ToString());
+                
 
                 Kalendarz.SelectedDate = DateTime.Today;
                 DataBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 GodzinaBox.Text = DateTime.Now.ToString("HH:mm");
 
-                Kalendarz.SelectedDayStyle.BackColor = System.Drawing.Color.CornflowerBlue;
+                Kalendarz.SelectedDayStyle.BackColor = System.Drawing.Color.PowderBlue;
+                Kalendarz.SelectedDayStyle.ForeColor = System.Drawing.Color.Black;
                 DodajWydarzenieButton.Visible = true;
 
                 var dc = DataContextSingleton.GetInstance();
@@ -80,6 +83,7 @@ namespace AppCalendar
                     div_dzisiaj.Controls.Add(div);
                 }
             }
+            div_formularz.Visible = false;
         }
 
         protected void Kalendarz_SelectionChanged(object sender, EventArgs e)
@@ -135,28 +139,9 @@ namespace AppCalendar
                 div_dzisiaj.Controls.Add(div);
             }
 
+            LabelDzisiaj.Visible = true;
             DodajWydarzenieButton.Visible = true;
-            NazwaLabel.Visible = false;
-            NazwaBox.Visible = false;
-            DataLabel.Visible = false;
-            DataBox.Visible = false;
-            GodzinaLabel.Visible = false;
-            GodzinaBox.Visible = false;
-            OpisLabel.Visible = false;
-            OpisBox.Visible = false;
-            MiejsceLabel.Visible = false;
-            MiejsceBox.Visible = false;
-            KategoriaLabel.Visible = false;
-            KategoriaList.Visible = false;
-            GoscieLabel.Visible = false;
-            GoscieBox.Visible = false;
-            NotatkaLabel.Visible = false;
-            NotatkaBox.Visible = false;
-            KolorLabel.Visible = false;
-            KolorBox.Visible = false;
-            PriorytetLabel.Visible = false;
-            PriorytetBox.Visible = false;
-            ZapiszButton.Visible = false;
+            div_formularz.Visible = false;
         }
 
         protected void DodajWydarzenieButton_Click(object sender, EventArgs e)
@@ -166,27 +151,7 @@ namespace AppCalendar
             LabelDzisiaj.Visible = false;
 
             DodajWydarzenieButton.Visible = false;
-            NazwaLabel.Visible = true;
-            NazwaBox.Visible = true;
-            DataLabel.Visible = true;
-            DataBox.Visible = true;
-            GodzinaLabel.Visible = true;
-            GodzinaBox.Visible = true;
-            OpisLabel.Visible = true;
-            OpisBox.Visible = true;
-            MiejsceLabel.Visible = true;
-            MiejsceBox.Visible = true;
-            KategoriaLabel.Visible = true;
-            KategoriaList.Visible = true;
-            GoscieLabel.Visible = true;
-            GoscieBox.Visible = true;
-            NotatkaLabel.Visible = true;
-            NotatkaBox.Visible = true;
-            KolorLabel.Visible = true;
-            KolorBox.Visible = true;
-            PriorytetLabel.Visible = true;
-            PriorytetBox.Visible = true;
-            ZapiszButton.Visible = true;
+            div_formularz.Visible = true;
 
             var dc = new DataClassesDataContext();
             var kategorie = dc.Tabela_Kategorie.ToList();
@@ -220,27 +185,7 @@ namespace AppCalendar
             dc.SubmitChanges();
 
             DodajWydarzenieButton.Visible = true;
-            NazwaLabel.Visible = false;
-            NazwaBox.Visible = false;
-            DataLabel.Visible = false;
-            DataBox.Visible = false;
-            GodzinaLabel.Visible = false;
-            GodzinaBox.Visible = false;
-            OpisLabel.Visible = false;
-            OpisBox.Visible = false;
-            MiejsceLabel.Visible = false;
-            MiejsceBox.Visible = false;
-            KategoriaLabel.Visible = false;
-            KategoriaList.Visible = false;
-            GoscieLabel.Visible = false;
-            GoscieBox.Visible = false;
-            NotatkaLabel.Visible = false;
-            NotatkaBox.Visible = false;
-            KolorLabel.Visible = false;
-            KolorBox.Visible = false;
-            PriorytetLabel.Visible = false;
-            PriorytetBox.Visible = false;
-            ZapiszButton.Visible = false;
+            div_formularz.Visible = false;
 
             LabelDzisiaj.Visible = true;
 

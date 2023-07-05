@@ -16,6 +16,18 @@
         { %>
     <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
+    <style>
+        table#Kalendarz tr:nth-child(2) th {
+            background-color: powderblue;
+        }
+
+        table#Kalendarz {
+            font-family: "Segoe UI"
+        }
+
+        ;
+        }
+    </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -40,63 +52,113 @@
                     </div>
                 </header>
 
-                <div class="col">
-                    <div class="row">
+                <div class="row">
+
+                    <div class="col-xxl-12">
                         <asp:Calendar ID="Kalendarz" runat="server" OnSelectionChanged="Kalendarz_SelectionChanged" DayRender="Kalendarz_DayRender" Height="238px" Width="1323px"></asp:Calendar>
                     </div>
+                </div>
 
-                    <div class="row">
+                <script>
+                    var d = document.getElementById("Kalendarz");
+                    d.className += "table table-bordered text-center ";
+                </script>
+
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Button ID="DodajWydarzenieButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Dodaj wydarzenie" Visible="false" OnClick="DodajWydarzenieButton_Click" />
                     </div>
-
-                    <div class="row">
-                        <asp:Label ID="NazwaLabel" class="form-label" runat="server" Text="Nazwa:      " Visible="false"></asp:Label><asp:TextBox ID="NazwaBox" class="form-control" runat="server" Visible="false"></asp:TextBox>
-                    </div>
-                    <div class="row">
-                        <asp:Label ID="DataLabel" class="form-label" runat="server" Text="Data:     " Visible="false"></asp:Label><asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date" Visible="false"></asp:TextBox><br />
-                    </div>
-                    <div class="row">
-                        <asp:Label ID="GodzinaLabel" class="form-label" runat="server" Text="Godzina:     " Visible="false"></asp:Label><asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time" Visible="false"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="OpisLabel" class="form-label" runat="server" Text="Opis:     " Visible="false"></asp:Label><asp:TextBox ID="OpisBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="MiejsceLabel" class="form-label" runat="server" Text="Miejsce:     " Visible="false"></asp:Label><asp:TextBox ID="MiejsceBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="KategoriaLabel" class="form-label" runat="server" Text="Kategoria:     " Visible="false"></asp:Label><asp:DropDownList ID="KategoriaList" class="form-control" runat="server" Visible="false"></asp:DropDownList><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="GoscieLabel" class="form-label" runat="server" Text="Goście:     " Visible="false"></asp:Label><asp:TextBox ID="GoscieBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="NotatkaLabel" class="form-label" runat="server" Text="Notatka:     " Visible="false"></asp:Label><asp:TextBox ID="NotatkaBox" class="form-control" runat="server" Visible="false"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="KolorLabel" class="form-label" runat="server" Text="Kolor:     " Visible="false"></asp:Label><asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color" Visible="false"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Label ID="PriorytetLabel" class="form-label" runat="server" Text="Priorytet:     " Visible="false"></asp:Label><asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Visible="false" Min="1" Max="10"></asp:TextBox><br />
-                    </div>
-
-                    <div class="row">
-                        <asp:Button ID="ZapiszButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Zapisz" Visible="false" OnClick="ZapiszButton_Click" />
-                    </div>
-
-                    <div class="row">
-                            <asp:Label ID="LabelDzisiaj" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Dzisiaj" Visible="True"></asp:Label>
-                    </div>
-
-                    <div id="div_dzisiaj" class="row" runat="server" ></div>
                 </div>
+
+                <div id="div_formularz" runat="server">
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <label for="NazwaBox" class="form-label">Nazwa</label>
+                            <asp:TextBox ID="NazwaBox" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-6">
+                            <label for="DataBox" class="form-label">Data</label>
+                            <asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date"></asp:TextBox>
+                        </div>
+
+                        <div class="col-xxl-6">
+                            <label for="GodzinaBox" class="form-label">Godzina</label>
+                            <asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <label for="OpisBox" class="form-label">Opis</label>
+                            <asp:TextBox ID="OpisBox" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <label for="MiejsceBox" class="form-label">Miejsce</label>
+                            <asp:TextBox ID="MiejsceBox" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <label for="KategoriaBox" class="form-label">Kategoria</label>
+                            <asp:DropDownList ID="KategoriaList" class="form-control" runat="server"></asp:DropDownList>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <label for="GoscieBox" class="form-label">Goscie</label>
+                            <asp:TextBox ID="GoscieBox" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <label for="NotatkaBox" class="form-label">Notatka</label>
+                            <asp:TextBox ID="NotatkaBox" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xxl-6">
+                            <label for="KolorBox" class="form-label">Kolor</label>
+                            <asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color"></asp:TextBox>
+                        </div>
+
+                        <div class="col-xxl-6">
+                            <label for="PriorytetBox" class="form-label">Priorytet</label>
+                            <asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Min="1" Max="10"></asp:TextBox>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <asp:Button ID="ZapiszButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Zapisz" OnClick="ZapiszButton_Click" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xxl-12">
+                        <asp:Label ID="LabelDzisiaj" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Dzisiaj" Visible="True"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xxl-12">
+                        <div id="div_dzisiaj" class="row" runat="server"></div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </form>

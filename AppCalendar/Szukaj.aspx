@@ -53,12 +53,18 @@
                         <div class="row">
                             <asp:Label ID="Label" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Wpisz nazwę wydarzenia"></asp:Label><br />
                         </div>
-                        <div class="input-group">
 
-                            <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
-                            <asp:Button ID="ButtonSzukaj" class="btn btn-secondary" runat="server" OnClick="ButtonSzukaj_Click" Text="Szukaj" />
+                        <div class="row">
+                            <div class="input-group">
+
+                                <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
+                                <asp:Button ID="ButtonSzukaj" class="btn btn-secondary"  runat="server" OnClick="ButtonSzukaj_Click" Text="Szukaj" />
+                            </div>
                         </div>
-                        <asp:Label ID="LabelKomunikat" class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
+
+                        <div class="row">
+                            <asp:Label ID="LabelKomunikat" class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
+                        </div>
                     </div>
                     <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
                         <ItemTemplate>
