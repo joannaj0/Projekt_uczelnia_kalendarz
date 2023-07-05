@@ -45,7 +45,7 @@
 <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
     <ItemTemplate>
     <ul>
-        <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "style=\"text-decoration: line-through\"" : "" %>>
+        <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"text-danger\"" : "" %>>
             <strong>Nazwa: </strong> <%# Eval("Nazwa") %> <br />
             <strong>Data: </strong> <%# Eval("Data", "{0:d}") %> <br />
             <strong>Godzina: </strong> <%# Eval("Godzina", "{0:t}") %> <br />

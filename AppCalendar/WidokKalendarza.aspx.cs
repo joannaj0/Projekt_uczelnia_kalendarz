@@ -43,24 +43,24 @@ namespace AppCalendar
 
                     if (wydarzenie.Data < DateTime.Now && wydarzenie.Godzina < DateTime.Now.TimeOfDay)
                     {
-                        var s = new HtmlGenericControl("s");
-                        s.InnerHtml = ("• ") + wydarzenie.Nazwa;
+                        var span = new HtmlGenericControl("span");
+                        span.InnerHtml = ("• ") + wydarzenie.Nazwa;
                         if (wydarzenie.Godzina != null)
                         {
-                            s.InnerHtml += (" o godzinie ") + wydarzenie.Godzina.ToString();
+                            span.InnerHtml += (" o godzinie ") + wydarzenie.Godzina.ToString();
                         }
 
                         if (wydarzenie.Miejsce != "")
                         {
-                            s.InnerHtml += (" w ") + wydarzenie.Miejsce;
+                            span.InnerHtml += (" w ") + wydarzenie.Miejsce;
                         }
 
                         if (wydarzenie.Goscie != "")
                         {
-                            s.InnerHtml += (" z ") + wydarzenie.Goscie;
+                            span.InnerHtml += (" z ") + wydarzenie.Goscie;
                         }
-
-                        div.Controls.Add(s);
+                        span.Attributes["class"] = "text-danger";
+                        div.Controls.Add(span);
                     }
                     else
                     {
@@ -99,24 +99,24 @@ namespace AppCalendar
 
                 if (wydarzenie.Data < DateTime.Now || (wydarzenie.Data == DateTime.Now.Date && wydarzenie.Godzina < DateTime.Now.TimeOfDay))
                 {
-                    var s = new HtmlGenericControl("s");
-                    s.InnerHtml = ("• ") + wydarzenie.Nazwa;
+                    var span = new HtmlGenericControl("span");
+                    span.InnerHtml = ("• ") + wydarzenie.Nazwa;
                     if (wydarzenie.Godzina != null)
                     {
-                        s.InnerHtml += (" o godzinie ") + wydarzenie.Godzina.ToString();
+                        span.InnerHtml += (" o godzinie ") + wydarzenie.Godzina.ToString();
                     }
 
                     if (wydarzenie.Miejsce != "")
                     {
-                        s.InnerHtml += (" w ") + wydarzenie.Miejsce;
+                        span.InnerHtml += (" w ") + wydarzenie.Miejsce;
                     }
 
                     if (wydarzenie.Goscie != "")
                     {
-                        s.InnerHtml += (" z ") + wydarzenie.Goscie;
+                        span.InnerHtml += (" z ") + wydarzenie.Goscie;
                     }
-
-                    div.Controls.Add(s);
+                    span.Attributes["class"] = "text-danger";
+                    div.Controls.Add(span);
                 }
                 else
                 {
@@ -197,24 +197,24 @@ namespace AppCalendar
 
                 if (wydarzenie.Data < DateTime.Now || (wydarzenie.Data == DateTime.Now.Date && wydarzenie.Godzina < DateTime.Now.TimeOfDay))
                 {
-                    var s = new HtmlGenericControl("s");
-                    s.InnerHtml = ("• ") + wydarzenie.Nazwa;
+                    var span = new HtmlGenericControl("span");
+                    span.InnerHtml = ("• ") + wydarzenie.Nazwa;
                     if (wydarzenie.Godzina != null)
                     {
-                        s.InnerHtml += (" o godzinie ") + wydarzenie.Godzina.ToString();
+                        span.InnerHtml += (" o godzinie ") + wydarzenie.Godzina.ToString();
                     }
 
                     if (wydarzenie.Miejsce != "")
                     {
-                        s.InnerHtml += (" w ") + wydarzenie.Miejsce;
+                        span.InnerHtml += (" w ") + wydarzenie.Miejsce;
                     }
 
                     if (wydarzenie.Goscie != "")
                     {
-                        s.InnerHtml += (" z ") + wydarzenie.Goscie;
+                        span.InnerHtml += (" z ") + wydarzenie.Goscie;
                     }
-
-                    div.Controls.Add(s);
+                    span.Attributes["class"] = "text-danger";
+                    div.Controls.Add(span);
                 }
                 else
                 {
