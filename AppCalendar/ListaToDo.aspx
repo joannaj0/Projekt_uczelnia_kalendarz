@@ -93,14 +93,25 @@
                                             </div>
 
                                             <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
-                                                    <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary col-12" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                <p>
+                                                    <div class="row justify-content-center">
+                                                        
+                                                            <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary col-10" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                      
+                                                    </div>
+                                                </p>
+
                                             </asp:Panel>
                                             <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
-                                                <div class="btn-group col-12">
-                                                    <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                    <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                    <asp:Button ID="UdostepnijButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Udostępnij" OnClick="UdostepnijButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                </div>
+                                                <p>
+                                                    <div class="row justify-content-md-center">
+                                                            <div class="btn-group col-11">
+                                                                <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                                <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                                <asp:Button ID="UdostepnijButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Udostępnij" OnClick="UdostepnijButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                            </div>
+                                                        </div>
+                                                </p>
                                             </asp:Panel>
 
 
