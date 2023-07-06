@@ -42,68 +42,75 @@
                         <asp:Button ID="Mode" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="Mode_Click" Text="Zmień Motyw" />
                     </div>
                 </header>
-                <div class="col-lg-4 order-md-last">
+                <div class="col-xxl-12 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Twoja lista to do</span>
                     </h4>
+                </div>
 
-                    <style>
-                        div.wpis-przeterminowany button.accordion-button::before {
-                            content: url(clipboard2.svg);
-                        }
+                <style>
+                    div.wpis-przeterminowany button.accordion-button::before {
+                        content: url(clipboard2.svg);
+                    }
 
-                        div.wpis-nieprzeterminowany button.accordion-button::before {
-                            content: url(clipboard2-x.svg);
-                        }
-                    </style>
+                    div.wpis-nieprzeterminowany button.accordion-button::before {
+                        content: url(clipboard2-x.svg);
+                    }
+                </style>
 
-                    <div class="row">
-                        <div class="col-xxl-12">
-                            <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
-                                <ItemTemplate>
-                                    <div <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"wpis-przeterminowany\"" : "class=\"wpis-nieprzeterminowany\"" %>>
-                                        <div class="accordion">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%# Eval("Id") %>" aria-expanded="false" aria-controls="collapse<%# Eval("Id") %>">
-                                                        <strong>&nbsp;&nbsp;Nazwa:&nbsp;</strong><%# Eval("Nazwa") %>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse<%# Eval("Id") %>" class="accordion-collapse collapse">
-                                                    <div class="accordion-body">
-                                                        <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
-                                                        <br />
-                                                        <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
-                                                        <br />
-                                                        <strong>Opis: </strong><%# Eval("Opis") %>
-                                                        <br />
-                                                        <strong>Miejsce: </strong><%# Eval("Miejsce") %>
-                                                        <br />
-                                                        <strong>Goście: </strong><%# Eval("Goscie") %>
-                                                        <br />
-                                                        <strong>Notatka: </strong><%# Eval("Notatka") %>
-                                                        <br />
-                                                        <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
-                                                        <br />
-                                                        <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
-                                                        <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
-                                                            <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                        </asp:Panel>
-                                                        <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
-                                                            <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                            <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                            <asp:Button ID="UdostepnijButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Udostępnij" OnClick="UdostepnijButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                        </asp:Panel>
-                                                    </div>
-                                                </div>
+
+
+                <div class="col-xxl-4">
+                    <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
+                        <ItemTemplate>
+                            <div <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"wpis-przeterminowany\"" : "class=\"wpis-nieprzeterminowany\"" %>>
+                                <div class="accordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%# Eval("Id") %>" aria-expanded="false" aria-controls="collapse<%# Eval("Id") %>">
+                                                <strong>&nbsp;&nbsp;Nazwa:&nbsp;</strong><%# Eval("Nazwa") %>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse<%# Eval("Id") %>" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
+                                                    <br />
+                                                    <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
+                                                    <br />
+                                                    <strong>Opis: </strong><%# Eval("Opis") %>
+                                                    <br />
+                                                    <strong>Miejsce: </strong><%# Eval("Miejsce") %>
+                                                    <br />
+                                                    <strong>Goście: </strong><%# Eval("Goscie") %>
+                                                    <br />
+                                                    <strong>Notatka: </strong><%# Eval("Notatka") %>
+                                                    <br />
+                                                    <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
+                                                    <br />
+                                                    <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span>
+                                                </p>
                                             </div>
+
+                                            <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
+                                                    <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary col-12" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                            </asp:Panel>
+                                            <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
+                                                <div class="btn-group col-12">
+                                                    <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                    <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                    <asp:Button ID="UdostepnijButtonW" CssClass="btn btn-outline-primary" runat="server" Text="Udostępnij" OnClick="UdostepnijButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                </div>
+                                            </asp:Panel>
+
+
                                         </div>
                                     </div>
-                                    <br />
-                                </ItemTemplate>
-                            </asp:ListView>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
+                            </br>
+                        </ItemTemplate>
+                    </asp:ListView>
                 </div>
             </div>
         </div>

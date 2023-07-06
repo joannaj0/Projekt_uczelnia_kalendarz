@@ -58,7 +58,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-xxl-6">
+                    <div class="col-xxl-4">
                         <div class="input-group">
 
                             <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
@@ -68,7 +68,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-xxl-6">
+                    <div class="col-xxl-4">
                         <asp:Label ID="LabelKomunikat" class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 </style>
 
                 <div class="row">
-                    <div class="col-xxl-6">
+                    <div class="col-xxl-4">
                         <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
                             <ItemTemplate>
                                 <div <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"wpis-przeterminowany\"" : "class=\"wpis-nieprzeterminowany\"" %>>
