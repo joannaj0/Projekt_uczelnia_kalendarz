@@ -6,6 +6,7 @@
 <head runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Szukaj</title>
@@ -41,63 +42,93 @@
                 </header>
 
 
-                <div class="col">
-                    <div class="col-lg-4 order-md-last">
-                        <div class="row">
-                            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="text-primary">Szukaj wydarzenia</span>
-                            </h4>
-                        </div>
+                <div class="row">
+                    <div class="col-xxl-6">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-primary">Szukaj wydarzenia</span>
+                        </h4>
+                    </div>
+                </div>
 
 
-                        <div class="row">
-                            <asp:Label ID="Label" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Wpisz nazwę wydarzenia"></asp:Label><br />
-                        </div>
+                <div class="row">
+                    <div class="col-xxl-6">
+                        <asp:Label ID="Label" class="h5 mb-3 fw-normal text-primary" runat="server" Text="Wpisz nazwę wydarzenia"></asp:Label><br />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xxl-6">
+                        <div class="input-group">
 
-                        <div class="row">
-                            <div class="input-group">
-
-                                <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
-                                <asp:Button ID="ButtonSzukaj" class="btn btn-secondary"  runat="server" OnClick="ButtonSzukaj_Click" Text="Szukaj" />
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <asp:Label ID="LabelKomunikat" class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
+                            <asp:TextBox ID="TextBoxNazwaWydarzenia" class="form-control" runat="server"></asp:TextBox>
+                            <asp:Button ID="ButtonSzukaj" class="btn btn-secondary" runat="server" OnClick="ButtonSzukaj_Click" Text="Szukaj" />
                         </div>
                     </div>
-                    <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
-                        <ItemTemplate>
-                            <ul>
-                                <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"text-danger\"" : "" %>>
-                                    <strong>Nazwa: </strong><%# Eval("Nazwa") %>
-                                    <br />
-                                    <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
-                                    <br />
-                                    <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
-                                    <br />
-                                    <strong>Opis: </strong><%# Eval("Opis") %>
-                                    <br />
-                                    <strong>Miejsce: </strong><%# Eval("Miejsce") %>
-                                    <br />
-                                    <strong>Goście: </strong><%# Eval("Goscie") %>
-                                    <br />
-                                    <strong>Notatka: </strong><%# Eval("Notatka") %>
-                                    <br />
-                                    <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
-                                    <br />
-                                    <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
-                                    <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
-                                        <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                    </asp:Panel>
-                                    <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
-                                        <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                        <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                    </asp:Panel>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xxl-6">
+                        <asp:Label ID="LabelKomunikat" class="h5 mb-3 fw-normal text-primary" runat="server" Width="318px"></asp:Label>
+                    </div>
+                </div>
+                <style>
+                    li.wpis-przeterminowany button.accordion-button::before {
+                        content: url(clipboard2.svg);
+                    }
+
+                    li.wpis-nieprzeterminowany button.accordion-button::before {
+                        content: url(clipboard2-x.svg);
+                    }
+                </style>
+
+                <div class="row">
+                    <div class="col-xxl-6">
+                        <ul>
+                        <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
+                            <ItemTemplate>
+                                <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"wpis-przeterminowany\"" : "class=\"wpis-nieprzeterminowany\"" %>>
+                                    <div class="accordion">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%# Eval("Id") %>" aria-expanded="false" aria-controls="collapse<%# Eval("Id") %>">
+                                                    <strong>&nbsp;&nbsp;Nazwa:&nbsp;</strong><%# Eval("Nazwa") %>
+                                                </button>
+                                            </h2>
+                                            <div id="collapse<%# Eval("Id") %>" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
+                                                    <br />
+                                                    <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
+                                                    <br />
+                                                    <strong>Opis: </strong><%# Eval("Opis") %>
+                                                    <br />
+                                                    <strong>Miejsce: </strong><%# Eval("Miejsce") %>
+                                                    <br />
+                                                    <strong>Goście: </strong><%# Eval("Goscie") %>
+                                                    <br />
+                                                    <strong>Notatka: </strong><%# Eval("Notatka") %>
+                                                    <br />
+                                                    <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
+                                                    <br />
+                                                    <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
+                                                    <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
+                                                        <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                    </asp:Panel>
+                                                    <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
+                                                        <asp:Button ID="EdytujButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Edytuj" OnClick="EdytujButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                        <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                    </asp:Panel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
-                            </ul>
-                        </ItemTemplate>
-                    </asp:ListView>
+                                <br />
+                            </ItemTemplate>
+                        </asp:ListView>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -16,17 +16,16 @@
         { %>
     <link rel="stylesheet" href="Darkmode.css" type="text/css" />
     <% } %>
+
     <style>
         table#Kalendarz tr:nth-child(2) th {
             background-color: powderblue;
         }
 
         table#Kalendarz {
-            font-family: "Segoe UI"
+            font-family: "Segoe UI";
         }
 
-        ;
-        }
     </style>
 </head>
 <body>
@@ -55,7 +54,7 @@
                 <div class="row">
 
                     <div class="col-xxl-12">
-                        <asp:Calendar ID="Kalendarz" runat="server" OnSelectionChanged="Kalendarz_SelectionChanged" DayRender="Kalendarz_DayRender" Height="238px" Width="1323px"></asp:Calendar>
+                        <asp:Calendar ID="Kalendarz" runat="server" OnSelectionChanged="Kalendarz_SelectionChanged" DayRender="Kalendarz_DayRender"></asp:Calendar>
                     </div>
                 </div>
 
