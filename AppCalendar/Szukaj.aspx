@@ -73,21 +73,20 @@
                     </div>
                 </div>
                 <style>
-                    li.wpis-przeterminowany button.accordion-button::before {
+                    div.wpis-przeterminowany button.accordion-button::before {
                         content: url(clipboard2.svg);
                     }
 
-                    li.wpis-nieprzeterminowany button.accordion-button::before {
+                    div.wpis-nieprzeterminowany button.accordion-button::before {
                         content: url(clipboard2-x.svg);
                     }
                 </style>
 
                 <div class="row">
                     <div class="col-xxl-6">
-                        <ul>
                         <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
                             <ItemTemplate>
-                                <li <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"wpis-przeterminowany\"" : "class=\"wpis-nieprzeterminowany\"" %>>
+                                <div <%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date ? "class=\"wpis-przeterminowany\"" : "class=\"wpis-nieprzeterminowany\"" %>>
                                     <div class="accordion">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header">
@@ -123,11 +122,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </div>
                                 <br />
                             </ItemTemplate>
                         </asp:ListView>
-                        </ul>
                     </div>
                 </div>
             </div>
