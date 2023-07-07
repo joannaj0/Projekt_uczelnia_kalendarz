@@ -25,7 +25,6 @@
         table#Kalendarz {
             font-family: "Segoe UI";
         }
-
     </style>
 </head>
 <body>
@@ -73,76 +72,70 @@
 
                     <div class="row">
                         <div class="col-xxl-12">
-                            <label for="NazwaBox" class="form-label">Nazwa</label>
-                            <asp:TextBox ID="NazwaBox" class="form-control" runat="server"></asp:TextBox>
+                            <label for="NazwaBox" class="form-label">Nazwa:</label>
+                            <asp:TextBox ID="NazwaBox" class="form-control" runat="server"></asp:TextBox><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-6">
-                            <label for="DataBox" class="form-label">Data</label>
-                            <asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date"></asp:TextBox>
+                            <label for="DataBox" class="form-label">Data:</label>
+                            <asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date"></asp:TextBox><br />
                         </div>
 
                         <div class="col-xxl-6">
-                            <label for="GodzinaBox" class="form-label">Godzina</label>
-                            <asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time"></asp:TextBox>
+                            <label for="GodzinaBox" class="form-label">Godzina:</label>
+                            <asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time"></asp:TextBox><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-12">
-                            <label for="OpisBox" class="form-label">Opis</label>
-                            <asp:TextBox ID="OpisBox" class="form-control" runat="server"></asp:TextBox>
+                            <label for="OpisBox" class="form-label">Opis:</label>
+                            <asp:TextBox ID="OpisBox" class="form-control" runat="server"></asp:TextBox><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-12">
-                            <label for="MiejsceBox" class="form-label">Miejsce</label>
-                            <asp:TextBox ID="MiejsceBox" class="form-control" runat="server"></asp:TextBox>
+                            <label for="MiejsceBox" class="form-label">Miejsce:</label>
+                            <asp:TextBox ID="MiejsceBox" class="form-control" runat="server"></asp:TextBox><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-12">
-                            <label for="KategoriaBox" class="form-label">Kategoria</label>
-                            <asp:DropDownList ID="KategoriaList" class="form-control" runat="server"></asp:DropDownList>
+                            <label for="KategoriaBox" class="form-label">Kategoria:</label>
+                            <asp:DropDownList ID="KategoriaList" class="form-control" runat="server"></asp:DropDownList><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-12">
-                            <label for="GoscieBox" class="form-label">Goscie</label>
-                            <asp:TextBox ID="GoscieBox" class="form-control" runat="server"></asp:TextBox>
+                            <label for="GoscieBox" class="form-label">Goscie:</label>
+                            <asp:TextBox ID="GoscieBox" class="form-control" runat="server"></asp:TextBox><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-12">
-                            <label for="NotatkaBox" class="form-label">Notatka</label>
-                            <asp:TextBox ID="NotatkaBox" class="form-control" runat="server"></asp:TextBox>
+                            <label for="NotatkaBox" class="form-label">Notatka:</label>
+                            <asp:TextBox ID="NotatkaBox" class="form-control" runat="server"></asp:TextBox><br />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xxl-6">
-                            <label for="KolorBox" class="form-label">Kolor</label>
-                            <asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color"></asp:TextBox>
+                            <label for="KolorBox" class="form-label">Kolor:</label>
+                            <asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color"></asp:TextBox><br />
                         </div>
 
                         <div class="col-xxl-6">
-                            <label for="PriorytetBox" class="form-label">Priorytet</label>
-                            <asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Min="1" Max="10"></asp:TextBox>
+                            <label for="PriorytetBox" class="form-label">Priorytet:</label>
+                            <asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Min="1" Max="10"></asp:TextBox><br />
                         </div>
                     </div>
-
-
-                    <div class="row">
-                        <div class="col-xxl-12">
-                            <asp:Button ID="ZapiszButton" CssClass="btn btn-outline-primary me-2" runat="server" Text="Zapisz" OnClick="ZapiszButton_Click" />
-                        </div>
-                    </div>
+                    <asp:Button ID="ZapiszButton" CssClass="w-100 btn btn-outline-primary btn-lg" runat="server" Text="Zapisz" OnClick="ZapiszButton_Click" />
                 </div>
                 <br />
                 <div class="row">
@@ -156,7 +149,6 @@
                         <div id="div_dzisiaj" class="row" runat="server"></div>
                     </div>
                 </div>
-
 
             </div>
         </div>

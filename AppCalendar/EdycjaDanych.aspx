@@ -39,52 +39,65 @@
                     </div>
                 </header>
 
-
-                <div class="col">
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Label ID="NazwaLabel" class="form-label" runat="server" Text="Nazwa:      " Visible="true"></asp:Label><asp:TextBox ID="NazwaBox" class="form-control" runat="server" Visible="true"></asp:TextBox><br />
                     </div>
+                </div>
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-6">
+
                         <asp:Label ID="DataLabel" class="form-label" runat="server" Text="Data:     " Visible="true"></asp:Label><asp:TextBox ID="DataBox" class="form-control" runat="server" TextMode="Date" Visible="true"></asp:TextBox><br />
                     </div>
 
-                    <div class="row">
+                    <div class="col-xxl-6">
                         <asp:Label ID="GodzinaLabel" class="form-label" runat="server" Text="Godzina:     " Visible="true"></asp:Label><asp:TextBox ID="GodzinaBox" class="form-control" runat="server" TextMode="Time" Visible="true"></asp:TextBox><br />
                     </div>
+                </div>
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Label ID="OpisLabel" class="form-label" runat="server" Text="Opis:     " Visible="true"></asp:Label><asp:TextBox ID="OpisBox" class="form-control" runat="server" Visible="true"></asp:TextBox><br />
                     </div>
+                </div>
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Label ID="MiejsceLabel" class="form-label" runat="server" Text="Miejsce:     " Visible="true"></asp:Label><asp:TextBox ID="MiejsceBox" class="form-control" runat="server" Visible="true"></asp:TextBox><br />
                     </div>
+                </div>
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Label ID="KategoriaLabel" class="form-label" runat="server" Text="Kategoria:     " Visible="true"></asp:Label><asp:DropDownList ID="KategoriaList" class="form-control" runat="server" Visible="true"></asp:DropDownList><br />
                     </div>
+                </div>
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Label ID="GoscieLabel" class="form-label" runat="server" Text="Goście:     " Visible="true"></asp:Label><asp:TextBox ID="GoscieBox" class="form-control" runat="server" Visible="true"></asp:TextBox><br />
                     </div>
-                    <div class="row">
+                </div>
+
+                <div class="row">
+                    <div class="col-xxl-12">
                         <asp:Label ID="NotatkaLabel" class="form-label" runat="server" Text="Notatka:     " Visible="true"></asp:Label><asp:TextBox ID="NotatkaBox" class="form-control" runat="server" Visible="true"></asp:TextBox><br />
                     </div>
+                </div>
 
-                    <div class="row">
+                <div class="row">
+                    <div class="col-xxl-6">
                         <asp:Label ID="KolorLabel" class="form-label" runat="server" Text="Kolor:     " Visible="true"></asp:Label><asp:TextBox ID="KolorBox" class="form-control" runat="server" TextMode="Color" Visible="true"></asp:TextBox><br />
                     </div>
 
-                    <div class="row">
+                    <div class="col-xxl-6">
                         <asp:Label ID="PriorytetLabel" class="form-label" runat="server" Text="Prioryet:     " Visible="true"></asp:Label><asp:TextBox ID="PriorytetBox" class="form-control" runat="server" TextMode="Number" Visible="true" Min="1" Max="10"></asp:TextBox><br />
                     </div>
-
-                    <div class="row">
-                        <asp:Button ID="ZapiszEdycjeButtonPW" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="ZapiszEdycjeButtonPW_Click" Text="Zapisz" />
-                    </div>
                 </div>
+                <asp:Button ID="ZapiszEdycjeButtonPW" CssClass="w-100 btn btn-outline-primary btn-lg" runat="server" OnClick="ZapiszEdycjeButtonPW_Click" Text="Zapisz" />
             </div>
+            <br />
         </div>
     </form>
 </body>

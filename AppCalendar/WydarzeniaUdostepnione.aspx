@@ -66,29 +66,37 @@
                                         </h2>
                                         <div id="collapse<%# Eval("Id") %>" class="accordion-collapse collapse">
                                             <div class="accordion-body">
+                                                <p>
+                                                    <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
+                                                    <br />
+                                                    <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
+                                                    <br />
+                                                    <strong>Opis: </strong><%# Eval("Opis") %>
+                                                    <br />
+                                                    <strong>Miejsce: </strong><%# Eval("Miejsce") %>
+                                                    <br />
+                                                    <strong>Goście: </strong><%# Eval("Goscie") %>
+                                                    <br />
+                                                    <strong>Notatka: </strong><%# Eval("Notatka") %>
+                                                    <br />
+                                                    <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
+                                                    <br />
+                                                    <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
+                                                </p>
+                                            
+                                            <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
+                                                    <div class="row justify-content-center">
+                                                        <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary col-10" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                    </div>
+                                            </asp:Panel>
+                                            <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
+                                               
+                                                    <div class="row justify-content-center">
+                                                        <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary col-10" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
+                                                    </div>
+                                            
+                                            </asp:Panel>
 
-                                                <strong>Data: </strong><%# Eval("Data", "{0:d}") %>
-                                                <br />
-                                                <strong>Godzina: </strong><%# Eval("Godzina", "{0:t}") %>
-                                                <br />
-                                                <strong>Opis: </strong><%# Eval("Opis") %>
-                                                <br />
-                                                <strong>Miejsce: </strong><%# Eval("Miejsce") %>
-                                                <br />
-                                                <strong>Goście: </strong><%# Eval("Goscie") %>
-                                                <br />
-                                                <strong>Notatka: </strong><%# Eval("Notatka") %>
-                                                <br />
-                                                <strong>Kolor: </strong><span style="color: <%# Eval("Kolor").ToString() %>"><%# Eval("Kolor") %></span>
-                                                <br />
-                                                <strong>Priorytet: </strong><span style="font-weight: bold; color: red"><%# Eval("Priorytet") %></span><br />
-                                                <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date < DateTime.Now.Date %>'>
-                                                    <asp:Button ID="UsunButtonWM" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                </asp:Panel>
-                                                <asp:Panel runat="server" Visible='<%# Convert.ToDateTime(Eval("Data")).Date >= DateTime.Now.Date %>'>
-                                                    <asp:Button ID="UsunButtonW" CssClass="btn btn-outline-primary me-2" runat="server" Text="Usuń" OnClick="UsunButtonW_Click" CommandArgument='<%# Eval("Id") %>' />
-                                                </asp:Panel>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
