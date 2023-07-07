@@ -71,5 +71,11 @@ namespace AppCalendar
             Session["DarkMode"] = !(bool)Session["DarkMode"];
             Response.Redirect("Szukaj.aspx");
         }
+
+        protected void WylogujButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Logowanie.aspx");
+        }
     }
 }

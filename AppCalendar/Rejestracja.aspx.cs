@@ -76,5 +76,11 @@ namespace AppCalendar
             var szyfr = new Rfc2898DeriveBytes(h, s, iterations, hashAlgorithm).GetBytes(keySize);
             return Convert.ToBase64String(szyfr);
         }
+
+        protected void Mode_Click(object sender, EventArgs e)
+        {
+            Session["DarkMode"] = !(bool)Session["DarkMode"];
+            Response.Redirect("Rejestracja.aspx");
+        }
     }
 }

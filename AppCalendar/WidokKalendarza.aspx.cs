@@ -30,8 +30,8 @@ namespace AppCalendar
                 DataBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 GodzinaBox.Text = DateTime.Now.ToString("HH:mm");
 
-                Kalendarz.SelectedDayStyle.BackColor = System.Drawing.Color.PowderBlue;
-                Kalendarz.SelectedDayStyle.ForeColor = System.Drawing.Color.Black;
+                Kalendarz.SelectedDayStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#6ea8fe");
+            
                 DodajWydarzenieButton.Visible = true;
 
                 var dc = DataContextSingleton.GetInstance();
@@ -242,6 +242,12 @@ namespace AppCalendar
         {
             Session["DarkMode"] = !(bool)Session["DarkMode"];
             Response.Redirect("WidokKalendarza.aspx");
+        }
+
+        protected void WylogujButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Logowanie.aspx");
         }
     }
 }

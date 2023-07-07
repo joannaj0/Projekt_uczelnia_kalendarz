@@ -69,5 +69,11 @@ namespace AppCalendar
             string id = udostepnijButton.CommandArgument;
             Response.Redirect("Udostepnianie.aspx?id=" + id);
         }
+
+        protected void WylogujButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Logowanie.aspx");
+        }
     }
 }

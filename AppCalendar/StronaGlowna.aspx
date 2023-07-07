@@ -2,20 +2,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+
+<html xmlns="http://www.w3.org/1999/xhtml" <%= (Session["DarkMode"] != null && (bool)Session["DarkMode"]) ? "class=\"darkmode\" data-bs-theme=\"dark\"" : "" %>>
+    <head runat="server">
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
  <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
         <title>Strona Główna</title>
-    <% if (Session["DarkMode"] != null && (bool)Session["DarkMode"])
-        { %>
-    <link rel="stylesheet" href="Styl.css" type="text/css" />
-    <% }
-        else
-        { %>
-    <link rel="stylesheet" href="Darkmode.css" type="text/css" />
-    <% } %>
+ 
 </head>
 
 <body>
@@ -34,7 +28,7 @@
                         </ul>
                     </div>
                     <div class="d-grid gap-2">
-                        <asp:Button ID="Mode" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="Mode_Click" Text="Zmień Motyw" />
+                        <asp:Button ID="Mode" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="Mode_Click" Text="Zmień Motyw" UseSubmitBehavior="False" />
                     </div>
 
                 </header>

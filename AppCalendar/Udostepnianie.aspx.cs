@@ -95,5 +95,17 @@ namespace AppCalendar
                 return -1;
             }
         }
+
+        protected void WylogujButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Logowanie.aspx");
+        }
+
+        protected void Mode_Click(object sender, EventArgs e)
+        {
+            Session["DarkMode"] = !(bool)Session["DarkMode"];
+            Response.Redirect("Udostepnianie.aspx");
+        }
     }
 }

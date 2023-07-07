@@ -65,5 +65,11 @@ namespace AppCalendar
                 return zaszyfrowane_haslo_string.Equals(przechowywane_zaszyfrowane_haslo);
             }
         }
+
+        protected void Mode_Click(object sender, EventArgs e)
+        {
+            Session["DarkMode"] = !(bool)Session["DarkMode"];
+            Response.Redirect("Logowanie.aspx");
+        }
     }
 }
