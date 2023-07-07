@@ -16,6 +16,10 @@ namespace AppCalendar
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asiak\Documents\DataBase.mdf;Integrated Security=True;Connect Timeout=30";
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+          
+        }
         protected void ZarejestrujButton_Click(object sender, EventArgs e)
         { 
             string email = EmailBoxR.Text;

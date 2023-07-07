@@ -95,6 +95,7 @@
     <Content Include="Web.config" />
     <Content Include="WidokKalendarza.aspx" />
     <Content Include="WydarzeniaUdostepnione.aspx" />
+    <Content Include="ZmianaHasla.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class.cs" />
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="WydarzeniaUdostepnione.aspx.designer.cs">
       <DependentUpon>WydarzeniaUdostepnione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZmianaHasla.aspx.cs">
+      <DependentUpon>ZmianaHasla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZmianaHasla.aspx.designer.cs">
+      <DependentUpon>ZmianaHasla.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,8 @@ namespace AppCalendar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int user_id = Int32.Parse(Session["user_id"].ToString());
+            
+            int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
 
             if (!Page.IsPostBack)
             {
@@ -82,7 +83,6 @@ namespace AppCalendar
 
         protected void WylogujButton_Click(object sender, EventArgs e)
         {
-            Session.Clear();
             Response.Redirect("Logowanie.aspx");
         }
 

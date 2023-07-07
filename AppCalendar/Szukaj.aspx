@@ -30,7 +30,7 @@
                     </div>
                     <div class="d-flex gap-2">
                         <asp:Button ID="Button2" CssClass="btn btn-outline-primary me-2" runat="server" Text="Wyloguj" OnClick="WylogujButton_Click" UseSubmitBehavior="False" />
-                    
+
                         <asp:Button ID="Mode" CssClass="btn btn-outline-primary me-2" runat="server" OnClick="Mode_Click" Text="Zmień Motyw" UseSubmitBehavior="False" />
                     </div>
                 </header>
@@ -73,6 +73,16 @@
 
                     div.wpis-nieprzeterminowany button.accordion-button::before {
                         content: url(clipboard2-x.svg);
+                    }
+
+                    html.darkmode div.wpis-przeterminowany button.accordion-button::before {
+                        content: url(clipboard2.svg);
+                        filter: invert(75%) sepia(15%) saturate(152%) hue-rotate(169deg) brightness(95%) contrast(86%);
+                    }
+
+                    html.darkmode div.wpis-nieprzeterminowany button.accordion-button::before {
+                        content: url(clipboard2-x.svg);
+                        filter: invert(75%) sepia(15%) saturate(152%) hue-rotate(169deg) brightness(95%) contrast(86%);
                     }
                 </style>
 

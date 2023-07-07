@@ -36,15 +36,25 @@
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Udostępnione Tobie wydarzenia</span>
                     </h4>
-                    <style>
-                        div.wpis-przeterminowany button.accordion-button::before {
-                            content: url(clipboard2.svg);
-                        }
+                <style>
+                    div.wpis-przeterminowany button.accordion-button::before {
+                        content: url(clipboard2.svg);
+                    }
 
-                        div.wpis-nieprzeterminowany button.accordion-button::before {
-                            content: url(clipboard2-x.svg);
-                        }
-                    </style>
+                    div.wpis-nieprzeterminowany button.accordion-button::before {
+                        content: url(clipboard2-x.svg);
+                    }
+
+                    html.darkmode div.wpis-przeterminowany button.accordion-button::before {
+                        content: url(clipboard2.svg);
+                        filter: invert(75%) sepia(15%) saturate(152%) hue-rotate(169deg) brightness(95%) contrast(86%);
+                    }
+                 
+                    html.darkmode div.wpis-nieprzeterminowany button.accordion-button::before {
+                        content: url(clipboard2-x.svg);
+                        filter: invert(75%) sepia(15%) saturate(152%) hue-rotate(169deg) brightness(95%) contrast(86%);
+                    }
+                </style>
 
                     <asp:ListView ID="ListView" runat="server" DataKeyNames="Id">
                         <ItemTemplate>

@@ -123,24 +123,6 @@ namespace AppCalendar
         protected global::System.Web.UI.WebControls.Button EdytujHasloButton;
 
         /// <summary>
-        /// Kontrolka WpiszNoweHasloBox.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WpiszNoweHasloBox;
-
-        /// <summary>
-        /// Kontrolka ZapiszEdycjeHButton.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ZapiszEdycjeHButton;
-
-        /// <summary>
         /// Kontrolka InfoLabelPL2.
         /// </summary>
         /// <remarks>

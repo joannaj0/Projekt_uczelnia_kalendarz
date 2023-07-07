@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" <%= (Session["DarkMode"] != null && (bool)Session["DarkMode"]) ? "class=\"darkmode\" data-bs-theme=\"dark\"" :  "class=\"lightmode\" data-bs-theme=\"light\"" %>>
+<html xmlns="http://www.w3.org/1999/xhtml" <%= (Session["DarkMode"] != null && (bool)Session["DarkMode"]) ? "class=\"darkmode\" data-bs-theme=\"dark\"" : "" %>>
 <head runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -47,10 +47,18 @@
                         content: url(clipboard2.svg);
                     }
 
-           
-
                     div.wpis-nieprzeterminowany button.accordion-button::before {
                         content: url(clipboard2-x.svg);
+                    }
+
+                    html.darkmode div.wpis-przeterminowany button.accordion-button::before {
+                        content: url(clipboard2.svg);
+                        filter: invert(75%) sepia(15%) saturate(152%) hue-rotate(169deg) brightness(95%) contrast(86%);
+                    }
+                 
+                    html.darkmode div.wpis-nieprzeterminowany button.accordion-button::before {
+                        content: url(clipboard2-x.svg);
+                        filter: invert(75%) sepia(15%) saturate(152%) hue-rotate(169deg) brightness(95%) contrast(86%);
                     }
                 </style>
 

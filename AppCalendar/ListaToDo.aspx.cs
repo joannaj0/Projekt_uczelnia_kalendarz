@@ -17,12 +17,8 @@ namespace AppCalendar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int user_id = Int32.Parse(Session["user_id"].ToString());
 
-            if (Session["DarkMode"] == null)
-            {
-                Session["DarkMode"] = true;
-            }
+            int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
 
             var dc = DataContextSingleton.GetInstance();
             var wydarzenia = dc.Tabela_Wydarzenia.Where(w => w.Id_Uzytkownika == user_id).OrderBy(w => w.Data).ThenBy(w => w.Godzina).ToList();
@@ -32,8 +28,9 @@ namespace AppCalendar
 
         protected void UsunButtonW_Click(object sender, EventArgs e)
         {
-            int user_id = Int32.Parse(Session["user_id"].ToString());
-     
+            int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
+
+
             int id = Convert.ToInt32((sender as Button).CommandArgument);
 
             var dc = DataContextSingleton.GetInstance();
@@ -72,7 +69,6 @@ namespace AppCalendar
 
         protected void WylogujButton_Click(object sender, EventArgs e)
         {
-            Session.Clear();
             Response.Redirect("Logowanie.aspx");
         }
     }

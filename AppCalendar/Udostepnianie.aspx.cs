@@ -13,12 +13,8 @@ namespace AppCalendar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["DarkMode"] == null)
-            {
-                Session["DarkMode"] = true;
-            }
 
-            int user_id = Int32.Parse(Session["user_id"].ToString());
+            int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
 
             if (!Page.IsPostBack)
             {
@@ -57,7 +53,7 @@ namespace AppCalendar
         {
             if (Request.QueryString["id"] != null)
             {
-                int wydarzenie_id = int.Parse(Request.QueryString["id"]);
+                int wydarzenie_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
 
 
                 foreach (ListItem listItem in CheckBoxListOsoby.Items)
@@ -98,7 +94,6 @@ namespace AppCalendar
 
         protected void WylogujButton_Click(object sender, EventArgs e)
         {
-            Session.Clear();
             Response.Redirect("Logowanie.aspx");
         }
 

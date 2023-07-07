@@ -15,9 +15,13 @@ namespace AppCalendar
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asiak\Documents\DataBase.mdf;Integrated Security=True;Connect Timeout=30";
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+          
+        }
         protected void ZalogujButton_Click(object sender, EventArgs e)
         {
-            string selectQuery1 = "SELECT Haslo, Sol FROM Tabela_RL WHERE Email='" + EmailBoxL.Text + "'";
+            string selectQuery1 = "SELECT Id, Haslo, Sol FROM Tabela_RL WHERE Email='" + EmailBoxL.Text + "'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -25,14 +29,16 @@ namespace AppCalendar
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
-                    string przechowywane_zaszyfrowane_haslo = reader.GetString(0);
-                    byte[] przechowywana_sol = reader.GetSqlBinary(1).Value;
+                    int id = reader.GetInt32(0);
+                    string przechowywane_zaszyfrowane_haslo = reader.GetString(1);
+                    byte[] przechowywana_sol = reader.GetSqlBinary(2).Value;
                     string haslo = HasloBoxL.Text;
                     bool SprawdzHaslo = this.SprawdzHaslo(haslo, przechowywane_zaszyfrowane_haslo, przechowywana_sol);
                     if (SprawdzHaslo)
                     {
-                        string email = EmailBoxL.Text;
-                        Response.Redirect("PomyslneLog.aspx?email=" + email + "&haslo=" + haslo);
+                        Session["Id_uzytkownika"] = id;
+                        Response.Redirect("PomyslneLog.aspx");
+
                     }
                     else
                     {

@@ -1,15 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StronaGlowna.aspx.cs" Inherits="AppCalendar.StronaGlowna" %>
 
 <!DOCTYPE html>
-
-
 <html xmlns="http://www.w3.org/1999/xhtml" <%= (Session["DarkMode"] != null && (bool)Session["DarkMode"]) ? "class=\"darkmode\" data-bs-theme=\"dark\"" : "" %>>
-    <head runat="server">
-       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+<head runat="server">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
- <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
-        <title>Strona Główna</title>
- 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Strona Główna</title>
 </head>
 
 <body>

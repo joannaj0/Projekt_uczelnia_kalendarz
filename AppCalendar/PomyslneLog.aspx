@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PomyslneLog.aspx.cs" Inherits="AppCalendar.PomyslneLog" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PomyslneLog.aspx.cs" Inherits="AppCalendar.PomyslneLog" %>
 
 <!DOCTYPE html>
 
@@ -65,14 +65,10 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                   <h6 class="my-0">Hasło</h6>
-                  <asp:Label ID="HasloLabel" class="text-body-secondary" runat="server" Text=" " Style="margin-right: 10px;">
-                  </asp:Label><asp:Button ID="EdytujHasloButton" class="btn btn-outline-secondary me-2" runat="server" Text="Edytuj" Visible="true" Style="margin-left: 10px;" OnClick="EdytujHasloButton_Click" />
+                  <asp:Label ID="HasloLabel" class="text-body-secondary" runat="server" Text=" ">
+                  </asp:Label><asp:Button ID="EdytujHasloButton" class="btn btn-outline-secondary me-2" runat="server" Text="Edytuj" Visible="true" OnClick="EdytujHasloButton_Click" />
            
-                            <div class="input-group">
-         
-                  <asp:TextBox ID="WpiszNoweHasloBox" class="form-control" runat="server" Visible="false"></asp:TextBox>
-                  <asp:Button ID="ZapiszEdycjeHButton" class="btn btn-secondary" runat="server" Text="Zapisz" Visible="false" OnClick="ZapiszEdycjeHButton_Click" />
-                                         </div>
+                      
   
                   <asp:Label ID="InfoLabelPL2" runat="server" Text=""></asp:Label>
               </div>
@@ -84,5 +80,4 @@
 </body>
 
 </html>
-
 

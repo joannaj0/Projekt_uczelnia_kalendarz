@@ -17,14 +17,10 @@ namespace AppCalendar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["DarkMode"] == null)
-            {
-                Session["DarkMode"] = true;
-            }
             if (!IsPostBack)
             {
-               int user_id = Int32.Parse(Session["user_id"].ToString());
-                
+               int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
+
 
                 Kalendarz.SelectedDate = DateTime.Today;
                 DataBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -88,7 +84,7 @@ namespace AppCalendar
 
         protected void Kalendarz_SelectionChanged(object sender, EventArgs e)
         {
-            int user_id = Int32.Parse(Session["user_id"].ToString());
+            int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
 
             var dc = DataContextSingleton.GetInstance();
             var wydarzenia = dc.Tabela_Wydarzenia.Where(w => w.Id_Uzytkownika == user_id && w.Data == Kalendarz.SelectedDate.Date).OrderBy(w => w.Data).ThenBy(w => w.Godzina).ToList();
@@ -163,7 +159,7 @@ namespace AppCalendar
 
         protected void ZapiszButton_Click(object sender, EventArgs e)
         {
-            int user_id = Int32.Parse(Session["user_id"].ToString());
+            int user_id = Int32.Parse(Session["Id_uzytkownika"].ToString());
 
             var dc = DataContextSingleton.GetInstance();
             var noweWydarzenie = new Tabela_Wydarzenia
@@ -246,7 +242,6 @@ namespace AppCalendar
 
         protected void WylogujButton_Click(object sender, EventArgs e)
         {
-            Session.Clear();
             Response.Redirect("Logowanie.aspx");
         }
     }

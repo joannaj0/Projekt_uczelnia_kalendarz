@@ -11,11 +11,10 @@ namespace AppCalendar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["DarkMode"]==null)
+            if (Session["DarkMode"] == null)
             {
                 Session["DarkMode"] = false;
             }
-            
         }
 
         protected void Mode_Click(object sender, EventArgs e)

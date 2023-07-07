@@ -18,74 +18,32 @@ namespace AppCalendar
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asiak\Documents\DataBase.mdf;Integrated Security=True;Connect Timeout=30";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["DarkMode"] == null)
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            string query = "SELECT Email FROM Tabela_RL WHERE Id = @Id_uzytkownika";
+            using (connection)
             {
-                Session["DarkMode"] = true;
-            }
-            string email = Request.QueryString["email"];
-            string haslo = Request.QueryString["haslo"];
-
-            if (email != null && haslo != null)
-            {
-                SqlConnection connection = new SqlConnection(connectionString);
-                connection.Open();
-
-                string query1 = "SELECT Id, Sol FROM Tabela_RL WHERE Email = @Email";
-                SqlCommand command1 = new SqlCommand(query1, connection);
-                command1.Parameters.AddWithValue("@Email", email);
-
-                byte[] przechowywana_sol = null;
-
-                SqlDataReader reader1 = command1.ExecuteReader();
-                if (reader1.Read())
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    przechowywana_sol = (byte[])reader1["Sol"];
-                }
-                reader1.Close();
+                    command.Parameters.AddWithValue("@Id_uzytkownika", Int32.Parse(Session["Id_uzytkownika"].ToString()));
 
-                string zaszyfrowane_haslo = SzyfrujHaslo(haslo, przechowywana_sol);
-
-                string query2 = "SELECT Id, Email, Haslo FROM Tabela_RL WHERE Email = @Email AND Haslo = @Haslo";
-                SqlCommand command2 = new SqlCommand(query2, connection);
-                command2.Parameters.AddWithValue("@Email", email);
-                command2.Parameters.AddWithValue("@Haslo", zaszyfrowane_haslo);
-
-                using (connection)
-                {
-                    int userId = (int)command2.ExecuteScalar();
-                    Session["user_id"] = userId;
-
-                    string query3 = "SELECT Id, Email, Haslo FROM Tabela_RL WHERE Id = @userId";
-                    SqlCommand command3 = new SqlCommand(query3, connection);
-                    command3.Parameters.AddWithValue("@userId", userId);
-                    SqlDataReader reader = command3.ExecuteReader();
-
-                    if (reader.Read())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        IdLabel.Text = reader["Id"].ToString();
-                        EmailLabel.Text = reader["Email"].ToString();
-                        HasloLabel.Text = haslo;
+                        if (reader.Read())
+                        {
+                            IdLabel.Text = Session["Id_uzytkownika"].ToString();
+                            EmailLabel.Text = reader["Email"].ToString();
+                        }
                     }
-
-                    reader.Close();
                 }
-                connection.Close();
             }
-        }
-
-        const int keySize = 64;
-        const int iterations = 350000;
-        HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
-
-        string SzyfrujHaslo(string h, byte[] s)
-        {
-            var szyfr = new Rfc2898DeriveBytes(h, s, iterations, hashAlgorithm).GetBytes(keySize);
-            return Convert.ToBase64String(szyfr);
+            connection.Close();
         }
 
         protected void WylogujButton_Click(object sender, EventArgs e)
         {
-            Session.Clear();
             Response.Redirect("Logowanie.aspx");
         }
 
@@ -98,9 +56,7 @@ namespace AppCalendar
 
         protected void EdytujHasloButton_Click(object sender, EventArgs e)
         {
-            EdytujHasloButton.Visible = false;
-            WpiszNoweHasloBox.Visible = true;
-            ZapiszEdycjeHButton.Visible = true;
+            Response.Redirect("ZmianaHasla.aspx");
         }
 
         protected void UsunKontoButton_Click(object sender, EventArgs e)
@@ -165,55 +121,10 @@ namespace AppCalendar
             }
         }
 
-        protected void ZapiszEdycjeHButton_Click(object sender, EventArgs e)
-        {
-            int userId = int.Parse(IdLabel.Text);
-            string AktualneHaslo = HasloLabel.Text;
-
-            string NoweHaslo = WpiszNoweHasloBox.Text;
-
-            if (string.IsNullOrWhiteSpace(NoweHaslo))
-            {
-                InfoLabelPL2.Text = "Pole z nowym hasłem nie może być puste!";
-                return;
-            }
-
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-
-            byte[] przechowywana_sol = null;
-            string query1 = "SELECT Sol FROM Tabela_RL WHERE Id = @userId";
-            SqlCommand command1 = new SqlCommand(query1, connection);
-            command1.Parameters.AddWithValue("@userId", userId);
-
-            SqlDataReader reader1 = command1.ExecuteReader();
-            if (reader1.Read())
-            {
-                przechowywana_sol = (byte[])reader1["Sol"];
-            }
-            reader1.Close();
-
-            string zaszyfrowane_haslo = SzyfrujHaslo(NoweHaslo, przechowywana_sol);
-
-            string query2 = "UPDATE Tabela_RL SET Haslo = @Haslo WHERE Id = @userId";
-            SqlCommand command2 = new SqlCommand(query2, connection);
-            command2.Parameters.AddWithValue("@Haslo", zaszyfrowane_haslo);
-            command2.Parameters.AddWithValue("@userId", userId);
-            command2.ExecuteNonQuery();
-
-            connection.Close();
-            InfoLabelPL2.Text = "Hasło zostało zmienione na: " + NoweHaslo + ".Zaloguj się ponownie!";
-            string redirectScript = "setTimeout(function() { window.location.href = 'Logowanie.aspx'; }, 2000);";
-            ClientScript.RegisterStartupScript(this.GetType(), "RedirectScript", redirectScript, true);
-        }
-
         protected void Mode_Click(object sender, EventArgs e)
         {
             Session["DarkMode"] = !(bool)Session["DarkMode"];
-            string email = Request.QueryString["email"];
-            string haslo = Request.QueryString["haslo"];
-            int id = Convert.ToInt32(IdLabel.Text);
-            Response.Redirect("PomyslneLog.aspx?email=" + email + "&haslo=" + haslo);
+            Response.Redirect("PomyslneLog.aspx");
         }
     }
 }
